@@ -5,6 +5,11 @@ Rails.application.routes.draw do
   # You can have the root of your site routed with "root"
   root 'pages#home'
 
+  namespace :slideshow do
+    resources :slides, only: [:show]
+    get '' => 'slides#home'
+  end
+
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 

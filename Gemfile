@@ -35,4 +35,6 @@ group :test, :development do
   gem 'rspec-rails'
   gem 'capybara'
   gem 'pry-rails'
+  gem 'shoulda-matchers'
+  gem 'valid_attribute'
 end
