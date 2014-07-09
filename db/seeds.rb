@@ -5,3 +5,14 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+first  = Slide.find_or_create_by( content: '<p>This is the first slide</p>' )
+second = Slide.find_or_create_by( content: '<p>This is the second slide</p>' )
+
+first.next = second
+first.save!
+
+second.previous = first
+second.save!
+
+CurrentSlide.create( slide_id: first.id )
