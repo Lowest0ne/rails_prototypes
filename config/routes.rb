@@ -7,7 +7,9 @@ Rails.application.routes.draw do
 
   namespace :slideshow do
     resources :slides, only: [:show]
-    get '' => 'slides#home'
+    resources :current_slides, only: [:update]
+    get 'pupil' => 'slides#pupil'
+    get 'teacher' => 'slides#teacher'
   end
 
   # Example of regular route:

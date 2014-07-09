@@ -1,0 +1,13 @@
+<%= render @slide %>
+<div id='this'></div>
+
+
+<script>
+$(document).ready( function()
+{
+  var p = document.createElement( 'P' );
+  p.innerHTML = <%= session[:current_slide] %>;
+
+  document.getElementById( 'this' ).appendChild( p );
+});
+</script>

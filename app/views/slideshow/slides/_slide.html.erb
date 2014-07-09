@@ -1,5 +1,1 @@
-<%= content_tag :p, @slide.title %>
-
-<%= content_tag :div, sanitize(@slide.content) %>
-<%= link_to('previous', slideshow_slide_path( @slide.previous )) if @slide.previous %>
-<%= link_to('next', slideshow_slide_path( @slide.next )) if @slide.next %>
+<%= content_tag :div, sanitize(slide.content) %>

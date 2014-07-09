@@ -1,0 +1,9 @@
+<%= render @slide %>
+
+<%= form_for @current_slide, { url: slideshow_current_slide_path( @current_slide ) } do | form | %>
+
+  <% if @slide.next %> <%= label_tag 'Next' %><%= radio_button_tag :slide_id, @slide.next.id %><% end %>
+  <% if @slide.previous %><%= label_tag 'Previous' %><%= radio_button_tag :slide_id, @slide.previous.id %><% end %>
+  <%= form.submit %>
+<% end %>
+

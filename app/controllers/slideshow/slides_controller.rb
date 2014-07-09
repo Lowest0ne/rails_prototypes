@@ -1,11 +1,13 @@
 class Slideshow::SlidesController < ApplicationController
 
-  def home
-    @slide = Slide.first || Slide.new( title: 'There are no slides' )
+  def pupil
+    session[ :current_slide ] = CurrentSlide.first.slide_id
+    @slide = Slide.find( session[ :current_slide ] )
   end
 
-  def show
-    @slide = Slide.find( params[:id] )
+  def teacher
+    @current_slide = CurrentSlide.first
+    @slide = Slide.find( @current_slide.slide_id )
   end
 
 end
