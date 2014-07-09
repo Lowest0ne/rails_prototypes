@@ -30,3 +30,9 @@ gem 'jquery-rails'
 # gem 'debugger', group: [:development, :test]
 
 gem 'rails_12factor', :group => :production
+
+group :test, :development do
+  gem 'rspec-rails'
+  gem 'capybara'
+  gem 'pry-rails'
+end
