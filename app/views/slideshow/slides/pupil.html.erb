@@ -1,13 +1,31 @@
-<%= render @slide %>
-<div id='this'></div>
+<div id='slide'></div>
 
+<%= javascript_tag do %>
 
-<script>
 $(document).ready( function()
 {
-  var p = document.createElement( 'P' );
-  p.innerHTML = <%= session[:current_slide] %>;
+  slideView( "<%= @slide.content.html_safe %>" );
 
-  document.getElementById( 'this' ).appendChild( p );
+  window.setInterval( checkStatus, 10000 );
 });
-</script>
+
+
+
+function createElement( type, attr = [] )
+{
+  var element = document.createElement( type );
+  for ( var i = 0; i < attr.length; ++i )
+    element.setAttribute( attr[i][0], attr[i][1] );
+  return element;
+}
+
+function slideView( content )
+{
+  $('#slide').append( $.parseHTML( content ) );
+}
+
+function checkStatus()
+{
+  location.reload( true );
+}
+<% end %>
