@@ -1,0 +1,12 @@
+<p>Our code will get messy if we need a new function for every power</p>
+<p>So we should write our power function</p>
+
+<code>
+function power( number, exponent )
+{
+  var result = number;
+  for ( var i = 1; i < exponent; ++i )
+    result *= number;
+
+  return result;
+}</code>

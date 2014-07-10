@@ -1,0 +1,23 @@
+<code>
+function power( number, exponent )
+{
+  var result = number;
+  for ( var i = 1; i < exponent; ++i )
+    result *= number;
+  return result;
+}</code>
+
+<p>With this function, we can re-write our square function</p>
+<code>
+function square( x )
+{
+  return power( x, 2 );
+}</code>
+
+<p>Our original code sill works.</p>
+
+<code>
+var number = 4;
+var number_squared = square( x );
+console.log( number_squared );  // prints 16 to the console
+</code>

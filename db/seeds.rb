@@ -6,13 +6,19 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-first  = Slide.find_or_create_by( content: '<p>This is the first slide</p>' )
-second = Slide.find_or_create_by( content: '<p>This is the second slide</p>' )
+slides = (1..14).to_a.map{|n| n.to_s }
 
-first.next = second
-first.save!
+names = slides.map do |n|
 
-second.previous = first
-second.save!
+  if n.length < 2
+    n = '0' + n
+  end
+  n
+end
 
-CurrentSlide.create( slide_id: first.id )
+
+names.map{ |s| './db/seed_slides/' + s + '.html' }.each_with_index do | file_name, idx |
+  content  = File.read( file_name )
+  slide = Slide.find_or_create_by( content: content )
+end
+

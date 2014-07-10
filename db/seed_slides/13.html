@@ -1,0 +1,23 @@
+<h1>Bonus: Anonymous Functions</h1>
+
+<p>Functions can take arguments, and these arguments can be functions</p>
+
+<p>window.setInterval() is a function that will call another function on a timer</p>
+
+<p>With a named function:</p>
+<code>
+function timer()
+{
+  console.log( 'hello' );
+}
+
+window.setInerval( timer, 1000 ); // will print 'hello' every second ( you've been warned )
+</code>
+
+<p>An anonymous function has no name, and can be written right into the function call:<p>
+
+<code>
+window.setInterval( function()
+{
+  console.log( 'hello' );
+}, 1000 );</code>
