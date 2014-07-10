@@ -21,11 +21,14 @@ function createElement( type, attr = [] )
 
 function slideView( content )
 {
-  $('#slide').append( $.parseHTML( content ) );
+  $('#slide').html( content );
 }
 
 function checkStatus()
 {
-  location.reload( true );
+  $.getJSON( "<%= slideshow_update_path %>", {}, function( data, status, unused )
+  {
+    if ( data.content ) slideView( data.content );
+  });
 }
 <% end %>

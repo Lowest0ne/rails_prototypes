@@ -9,6 +9,7 @@ Rails.application.routes.draw do
     resources :slides, only: [:show]
     resources :current_slides, only: [:update]
     get 'pupil' => 'slides#pupil'
+    get 'update' => 'slides#update'
     get 'teacher' => 'slides#teacher'
   end
 
